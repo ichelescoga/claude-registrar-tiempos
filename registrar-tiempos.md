@@ -256,7 +256,7 @@ SIEMPRE mostrar todo antes de ejecutar:
 Ejecutar en este orden:
 1. PUT campos faltantes
 2. PUT descripcion (si aplica)
-3. POST comentarios (si aplica)
+3. POST comentarios del issue (si aplica — uno por segmento, tickets trabajo)
 4. POST worklogs
 
 Reportar:
@@ -268,8 +268,21 @@ Reportar:
 | FN-5402 | 3 worklogs + CeCo + FixVersion | OK |
 | FN-5401 | 1 worklog | OK |
 
-Total: X worklogs registrados, Y campos completados.
+Total: X worklogs registrados, Y campos completados, Z comentarios agregados.
 ```
+
+### PASO 8: Cierre de ticket (cuando el usuario lo indique)
+
+Cuando el usuario diga que hay que cerrar un ticket de trabajo:
+
+1. **Actualizar descripcion** con tiempo total real y estado final:
+   - Cambiar `🔹 Estado actual: En curso` → `🔹 Estado actual: Completado`
+   - Cambiar `🔹 Tiempo invertido: Xh` → al total real sumando todos los worklogs
+   - Agregar resumen de avances si no estaba
+
+2. **Ajustar estimacion** si el timeSpent real supera la estimacion original (regla: solo subir)
+
+3. **Transicion a Done** (intentar id `31`, si falla intentar otras transiciones disponibles)
 
 ## Regla de Estimacion
 
