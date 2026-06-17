@@ -193,26 +193,62 @@ Para cada ticket, construir lista de acciones:
 | `ONF`, `OF`, `GTH` | No cambiar |
 
 **Descripcion (solo tickets trabajo sin descripcion):**
-Formato ADF:
+
+Formato Daily Report (estandar Confluence: "Formato de Daily Report para cada subtarea"):
 ```
-🔹 Fecha: DD/MM/YYYY
+🔹 Fecha: DD/MM/AAAA
 🔹 Proyecto: [detectar de labels: FRI Banrural / AVE BI]
 🔹 Subtarea asignada: [nombre ticket padre]
-🔹 Estado actual: En curso
-🔹 Tiempo invertido: [suma segmentos]h
+🔹 Estado actual: [Por iniciar / En progreso / En revision / Finalizado]
+🔹 Tiempo invertido: [HH:mm]
 
-1️⃣ Avances del dia
-📌 [bullets con detalle de cada segmento]
-
-🧪 Pruebas realizadas
-- [si aplica]
+0️⃣ Descripcion de la tarea
+📌 Breve explicacion del objetivo de la subtarea:
+- [Alcance: que se busca lograr]
+- [Entregables esperados]
+- [Dependencias o requisitos previos]
 ```
 
 **Comentarios (solo tickets trabajo, uno por segmento):**
+
+Cada comentario es un "avance" en formato Daily Report. Se agrega UNO por cada segmento de tracking:
 ```
 POST /rest/api/3/issue/{KEY}/comment
-Body ADF: "📅 DD/MM — HH:MM-HH:MM (Xh)\n[Detalle de lo que se hizo en ese segmento]"
+Body ADF:
+
+🔹 Fecha: DD/MM/AAAA
+🔹 Segmento: HH:MM-HH:MM (Xh)
+🔹 Subtarea asignada: [nombre ticket padre]
+🔹 Estado actual: [En progreso / En revision / Finalizado]
+🔹 Tiempo invertido: [acumulado hasta este segmento]
+
+1️⃣ Avances del segmento
+📌 Descripcion detallada de lo realizado:
+- [Que se hizo en este bloque]
+- [PRs, commits, docs generados]
+- [Pruebas realizadas y resultados]
+🔗 Enlaces relevantes:
+- [PR o commit en Bitbucket]
+- [Documentacion creada/actualizada]
+
+2️⃣ Retos o dificultades encontradas
+📌 Problemas identificados:
+- [Bloqueo tecnico / error / duda]
+- [Como se resolvio]
+- [Si se necesita apoyo]
+(Si no hubo: "Ninguno")
+
+3️⃣ Plan para el siguiente segmento/dia
+📌 Proximos pasos:
+- [Que sigue despues de este segmento]
+- [Dependencias pendientes]
+
+4️⃣ Comentarios adicionales
+📌 [Observaciones, feedback recibido, notas relevantes]
+(Si no hay: omitir esta seccion)
 ```
+
+**NOTA:** La seccion 0️⃣ va en la DESCRIPCION del ticket (una sola vez). Las secciones 1️⃣-4️⃣ van en cada COMENTARIO (uno por segmento de tracking).
 
 **Worklogs (todos los tickets, uno por segmento):**
 ```
