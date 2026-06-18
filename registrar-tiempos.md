@@ -130,9 +130,9 @@ Detectar por el summary del ticket. Si contiene alguna de estas palabras:
 - "Soportes y Resolucion"
 
 **Para recurrentes:**
-- Solo worklog con comentario descriptivo
-- NO descripcion del ticket
-- NO comentario del issue
+- Worklog con comentario descriptivo
+- Comentario del issue en formato Daily Report (secciones 1️⃣-3️⃣)
+- NO descripcion del ticket (ya la tiene o no aplica)
 
 ### Tickets de TRABAJO (todo el protocolo)
 Cualquier ticket que NO sea recurrente.
